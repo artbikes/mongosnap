@@ -103,6 +103,7 @@ func (b *Backup) Run(args []string) int {
 
 		}(v)
 	}
+	logger.Info.Printf("do we get to this point?")
 	wg.Wait()
 	logger.Info.Printf("was expecting this to end here")
 	//lvm.Cleanup(snappath, backconf.Cluster.Snapshot.MountPath)
