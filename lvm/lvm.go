@@ -66,6 +66,8 @@ func Cleanup(snappath, mountdir string) {
 		logger.Error.Println(err)
 	}
 
+	logger.Info.Printf("surely this must work")
+
 	removesnapcmd := fmt.Sprintf("lvremove -f %s", snappath)
 	logger.Info.Println(removesnapcmd)
 	run := exec.Command("bash", "-c", removesnapcmd)
