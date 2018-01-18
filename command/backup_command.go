@@ -58,9 +58,9 @@ func (b *Backup) Run(args []string) int {
 	logger.Info.Printf("Logical Volume Path: %s", volpath)
 	logger.Info.Printf("LVM Snapshot path: %s", snappath)
 
-	lvm.Cleanup(snappath,
-		backconf.Cluster.Snapshot.MountPath,
-	)
+	//lvm.Cleanup(snappath,
+	//	backconf.Cluster.Snapshot.MountPath,
+	//)
 
 	lvm.TakeSnap(backconf.Cluster.Snapshot.Size,
 		backconf.Cluster.Snapshot.SnapshotName,
@@ -104,8 +104,8 @@ func (b *Backup) Run(args []string) int {
 		}(v)
 	}
 	wg.Wait()
-
-	lvm.Cleanup(snappath, backconf.Cluster.Snapshot.MountPath)
+	logger.Info.Printf("was expecting this to end here")
+	//lvm.Cleanup(snappath, backconf.Cluster.Snapshot.MountPath)
 
 	return 0
 }

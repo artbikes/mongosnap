@@ -47,7 +47,7 @@ func MountLvmSnap(snappath, mountpath, fstype, opts string) {
 
 	if err != nil {
 		logger.Error.Println(err)
-		Cleanup(snappath, mountpath)
+		//Cleanup(snappath, mountpath)
 	} else {
 		logger.Info.Printf("Mounted snapshot %s at path %s using opt string %s",
 			snappath,
